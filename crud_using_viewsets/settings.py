@@ -40,13 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',    #changed
+    
     'corsheaders',
     'django.contrib.staticfiles',
     # 'products.apps.productsConfig',
-    'user',
+    'user',   
     'products',
     'Restaurants',
-    # 'Cart',
+    # 'Cart',   
     'drf_yasg',
     # 'django_otp',
     # 'django_otp.plugins.otp_totp',
@@ -88,6 +90,17 @@ MIDDLEWARE = [
 #         'rest_framework.authentication.TokenAuthentication',
 #     ]
 # }
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 

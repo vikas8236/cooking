@@ -22,13 +22,14 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 # from django.contrib.auth.models import User
 # from django_otp.admin import OTPAdminSite
 # from django_otp.plugins.otp_totp.models import TOTPDevice
 # from django_otp.plugins.otp_totp.admin import TOTPDeviceAdmin
 from django.contrib.admin import AdminSite
 # from . import models
-from products.models import Product, CartItem, Cart
+# from products.models import Product, CartItem, Cart
 
 
 
@@ -40,13 +41,40 @@ from products.models import Product, CartItem, Cart
 
 # admin_site.register(TOTPDevice, TOTPDeviceAdmin)
 
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('products/', include('products.urls')), 
     path('', include('Restaurants.urls')), 
 
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

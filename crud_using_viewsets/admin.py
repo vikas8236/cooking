@@ -1,10 +1,10 @@
-# from django.contrib import admin
-# from products.models import Product, Cart, CartItem  # Import models from your apps
+from django.contrib import admin
+from products.models import Product, Cart, CartItem 
 
 # # Register models for the default admin site
-# admin.site.register(Product)
-# admin.site.register(Cart)
-# admin.site.register(CartItem)
+admin.site.register(Product)
+admin.site.register(Cart)
+admin.site.register(CartItem)
 
 # # Example of creating a custom admin site
 # from django.contrib.admin import AdminSite
